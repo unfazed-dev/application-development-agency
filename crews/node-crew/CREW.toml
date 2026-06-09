@@ -2,6 +2,10 @@ name = "node-crew"
 version = "1.0.0"
 description = "Node.js backend specialist — Express API, web server config, build pipeline"
 layer = "backend"
+#
+# Script path convention: `script` fields in agent contracts are relative to
+# this CREW.toml's directory. Scripts live in `crews/<crew>/scripts/`.
+# Example: script = "scripts/node-build.sh" → crews/node-crew/scripts/node-build.sh
 
 [author]
 name = "pixel 77"

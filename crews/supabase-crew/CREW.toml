@@ -2,6 +2,10 @@ name = "supabase-crew"
 version = "1.0.0"
 description = "Supabase backend specialist — PostgreSQL schema, RLS policies, Edge Functions, Auth"
 layer = "backend"
+#
+# Script path convention: `script` fields in agent contracts are relative to
+# this CREW.toml's directory. Scripts live in `crews/<crew>/scripts/`.
+# Example: script = "scripts/supabase-migrate.sh" → crews/supabase-crew/scripts/supabase-migrate.sh
 
 [author]
 name = "pixel 77"

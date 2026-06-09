@@ -14,6 +14,6 @@ prompt = """You are the Design Builder for Dioxus (Rust WASM). Generate theme fi
 name = "dioxus-ui-design"
 
 [[toolsets]]
-names = ["file", "terminal"]
+names = ["file", "terminal", "web"]
 
 script = "scripts/dioxus-gen-theme.sh"

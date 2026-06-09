@@ -1,6 +1,22 @@
 # Compliance profile — minimal for a declarative dev agency.
 # Premium-first-party agencies target L0 machine-issued certification.
 # No GDPR/HIPAA/PCI scope for a development tool agency.
+#
+# ── network=false vs tool capability ──
+# `network = false` is a COMPLIANCE POSTURE: the agency declares it does not handle
+# data that requires network access (no PII egress, no payment processing, no
+# data residency). It is NOT a tool restriction — tool access is gated at runtime
+# by the tool-zone broker (arxap-host/src/broker.rs, ADR-0028 §3), which resolves
+# each tool's zone from its MCP annotations.
+#
+# The `web` tool with `open_world_hint + read_only_hint` resolves to the STANDARD
+# zone (arxap-spec §3 — Simon Willison lethal trifecta: read-only external access
+# cannot exfiltrate private data, so it's safe for community workloads). This is
+# a spec-level derivation; per-zone policy gating lives in the broker, not here.
+#
+# Future: certification-level zone matrices (L0=standard only, L1=+privileged web,
+# L2=full) can tighten or relax access without changing this file. The profile
+# declares intent; the engine enforces it per the spec+broker matrix.
 
 [certification]
 target = "L0"

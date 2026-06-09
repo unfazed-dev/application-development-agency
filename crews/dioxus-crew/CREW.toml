@@ -2,6 +2,10 @@ name = "dioxus-crew"
 version = "1.0.0"
 description = "Dioxus stack specialist — Rust WASM presentation, signals state, navigation, testing"
 layer = "frontend"
+#
+# Script path convention: `script` fields in agent contracts are relative to
+# this CREW.toml's directory. Scripts live in `crews/<crew>/scripts/`.
+# Example: script = "scripts/dioxus-gen-theme.sh" → crews/dioxus-crew/scripts/dioxus-gen-theme.sh
 
 [author]
 name = "pixel 77"
@@ -58,3 +62,11 @@ read_only_hint = false
 destructive_hint = false
 idempotent_hint = true
 open_world_hint = false
+
+[[tools]]
+name = "web"
+[tools.annotations]
+read_only_hint = true
+destructive_hint = false
+idempotent_hint = true
+open_world_hint = true

@@ -59,6 +59,14 @@ context_from = ["2b"]
 gate = ["review-code"]
 
 [[phases]]
+id = "3b"
+slot = "build-release"
+layer = "backend"
+mode = "fan-out"
+description = "Build backend release artifacts (node-crew build-agent)"
+context_from = ["3"]
+
+[[phases]]
 id = "4"
 slot = "implement-application"
 layer = "core"
@@ -91,7 +99,7 @@ slot = "serve-release"
 layer = "backend"
 mode = "fan-out"
 description = "Generate serving config for backend release"
-context_from = ["3"]
+context_from = ["3b"]
 
 [[phases]]
 id = "7"

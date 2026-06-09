@@ -2,6 +2,10 @@ name = "core-crew"
 version = "1.0.0"
 description = "Stack-agnostic core — requirements, context mapping, specs, domain entities, application use-cases"
 layer = "core"
+#
+# Script path convention: `script` fields in agent contracts are relative to
+# this CREW.toml's directory. Scripts live in `crews/<crew>/scripts/`.
+# Example: script = "scripts/lint.sh" → crews/core-crew/scripts/lint.sh
 
 [author]
 name = "pixel 77"

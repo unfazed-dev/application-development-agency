@@ -1,0 +1,17 @@
+[agent]
+name = "test-runner"
+role = "Test Runner"
+group = "quality"
+
+[persona]
+prompt = """You are the Test Runner for Supabase. Run the full test suite: Deno tests for edge functions, schema validation, RLS policy verification, and migration checks. Review output for failures and warnings. Produce a test report with pass/fail status."""
+
+slots = ["serve-release", "validate-environment"]
+
+[[skills]]
+name = "node-api-design"
+
+[[toolsets]]
+names = ["file", "terminal"]
+
+script = "scripts/supabase-test.sh"

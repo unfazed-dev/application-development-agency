@@ -1,0 +1,54 @@
+name = "supabase-crew"
+version = "1.0.0"
+description = "Supabase backend specialist — PostgreSQL schema, RLS policies, Edge Functions, Auth"
+layer = "backend"
+
+[author]
+name = "pixel 77"
+
+[[agents]]
+role = "schema-designer"
+contract = "agents/domain/schema-designer.toml"
+
+[[agents]]
+role = "edge-function-designer"
+contract = "agents/application/edge-function-designer.toml"
+
+[[agents]]
+role = "api-designer"
+contract = "agents/application/api-designer.toml"
+
+[[agents]]
+role = "test-runner"
+contract = "agents/quality/test-runner.toml"
+
+[slots]
+design-api = ["schema-designer"]
+build-infrastructure = ["edge-function-designer", "api-designer"]
+serve-release = ["test-runner"]
+validate-environment = ["test-runner"]
+
+[[routines]]
+name = "default"
+order = [
+  "schema-designer",
+  "edge-function-designer",
+  "api-designer",
+  "test-runner",
+]
+
+[[tools]]
+name = "file"
+[tools.annotations]
+read_only_hint = true
+destructive_hint = false
+idempotent_hint = true
+open_world_hint = false
+
+[[tools]]
+name = "terminal"
+[tools.annotations]
+read_only_hint = false
+destructive_hint = false
+idempotent_hint = true
+open_world_hint = false

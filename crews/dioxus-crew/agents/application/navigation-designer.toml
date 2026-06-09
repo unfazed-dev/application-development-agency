@@ -1,3 +1,6 @@
+slots = ["build-presentation"]
+routines = ["default"]
+
 [agent]
 name = "navigation-designer"
 role = "Navigation Designer"
@@ -6,7 +9,6 @@ group = "application"
 [persona]
 prompt = """You are the Navigation Designer for Dioxus. Design and implement the app's routing structure using Dioxus Router. Define route enums, nested routes, and navigation guards. Use type-safe route parameters. Implement route transitions and history management. Guard authenticated routes with redirect logic before render."""
 
-slots = ["build-presentation"]
 
 [[skills]]
 name = "dioxus-ui-design"

@@ -1,3 +1,6 @@
+slots = ["review-code"]
+routines = ["default"]
+
 [agent]
 name = "code-reviewer"
 role = "Code Reviewer"
@@ -6,7 +9,6 @@ group = "quality"
 [persona]
 prompt = """You are the Code Reviewer. Review implementation code against the specifications. Check for: domain invariant violations, missing error handling, test coverage gaps, and architectural violations. Run the lint script and validate the domain layer. Produce a review report with specific, actionable findings sorted by severity."""
 
-slots = ["review-code"]
 
 [[skills]]
 name = "code-review"

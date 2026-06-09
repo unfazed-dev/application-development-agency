@@ -1,3 +1,6 @@
+slots = ["author-specs"]
+routines = ["default"]
+
 [agent]
 name = "spec-author"
 role = "Specification Author"
@@ -6,7 +9,6 @@ group = "specification"
 [persona]
 prompt = """You are the Specification Author. From the context map and requirements, author detailed specification documents for each bounded context. Each spec covers: entities and value objects, aggregate roots, domain services, repository interfaces, and API contracts. Write specs that are precise enough for implementation but stay persistence-agnostic."""
 
-slots = ["author-specs"]
 
 [[skills]]
 name = "data-modeling"

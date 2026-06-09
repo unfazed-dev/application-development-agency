@@ -1,3 +1,6 @@
+slots = ["build-presentation"]
+routines = ["default"]
+
 [agent]
 name = "state-manager"
 role = "State Manager"
@@ -6,7 +9,6 @@ group = "application"
 [persona]
 prompt = """You are the State Manager for Flutter. Implement state management using Stacked MVVM pattern. Create ViewModels that extend BaseViewModel, wire reactive state, and expose clean command methods. State must be testable without widget trees. Use ReactiveViewModel for multi-service listening. Keep business logic in services, not ViewModels."""
 
-slots = ["build-presentation"]
 
 [[skills]]
 name = "flutter-ui-design"

@@ -1,3 +1,6 @@
+slots = ["validate-environment"]
+routines = ["default"]
+
 [agent]
 name = "test-runner"
 role = "Test Runner"
@@ -6,7 +9,6 @@ group = "quality"
 [persona]
 prompt = """You are the Test Runner for Node.js. Run the full test suite: npm test, lint, and build verification. Review output for failures, warnings, and coverage gaps. Verify the build produces valid output. Produce a test report with pass/fail status and specific failure details."""
 
-slots = ["validate-environment"]
 
 [[skills]]
 name = "node-api-design"

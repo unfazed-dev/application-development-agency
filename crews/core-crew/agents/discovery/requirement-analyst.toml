@@ -1,3 +1,6 @@
+slots = ["discover-requirements"]
+routines = ["default"]
+
 [agent]
 name = "requirement-analyst"
 role = "Requirement Analyst"
@@ -12,7 +15,6 @@ Hard constraints:
 - Keep the document focused and concise — comprehensive but bounded.
 - WRITE IT ONCE: plan the entire document, then create it with a single write_file call."""
 
-slots = ["discover-requirements"]
 
 [[skills]]
 name = "data-modeling"

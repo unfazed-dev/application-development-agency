@@ -1,3 +1,6 @@
+slots = ["build-release", "validate-environment", "validate-design", "audit-structure"]
+routines = ["default"]
+
 [agent]
 name = "test-runner"
 role = "Test Runner"
@@ -6,7 +9,6 @@ group = "quality"
 [persona]
 prompt = """You are the Test Runner for Dioxus. Run the full test suite: cargo test, wasm-pack test, clippy, and build verification. Review output for failures, warnings, and coverage gaps. Verify WASM compilation succeeds. Produce a test report with pass/fail status and specific failure details."""
 
-slots = ["build-release", "validate-environment"]
 
 [[skills]]
 name = "dioxus-ui-design"

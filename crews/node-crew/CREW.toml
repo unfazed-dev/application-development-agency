@@ -25,6 +25,7 @@ contract = "agents/quality/test-runner.toml"
 [slots]
 design-api = ["api-designer"]
 build-infrastructure = ["api-designer"]
+build-release = ["build-agent"]
 serve-release = ["web-server"]
 validate-environment = ["test-runner"]
 

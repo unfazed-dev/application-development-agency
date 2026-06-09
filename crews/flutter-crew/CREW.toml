@@ -30,6 +30,8 @@ contract = "agents/quality/test-runner.toml"
 build-presentation = ["design-builder", "widget-composer", "state-manager", "navigation-designer"]
 build-release = ["test-runner"]
 validate-environment = ["test-runner"]
+validate-design = ["test-runner"]
+audit-structure = ["test-runner"]
 
 [[routines]]
 name = "default"
@@ -38,6 +40,7 @@ order = [
   "widget-composer",
   "state-manager",
   "navigation-designer",
+  "test-runner",
 ]
 
 [[tools]]

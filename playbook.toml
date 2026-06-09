@@ -1,0 +1,102 @@
+# Playbook — cross-crew DAG. Phases reference abstract slots resolved to crew agents at hire.
+# 11 phases, 3 layers (core, backend, frontend). Direct port of the ADK pipeline.toml.
+
+[playbook]
+name = "application-development-agency"
+version = "1.0.0"
+
+[[phases]]
+id = "1a"
+slot = "discover-requirements"
+layer = "core"
+mode = "once"
+description = "Extract requirements, screens, fields from design inputs"
+gate = ["inspect-specs"]
+
+[[phases]]
+id = "1b"
+slot = "map-contexts"
+layer = "core"
+mode = "once"
+description = "Map bounded contexts from requirements"
+context_from = ["1a"]
+gate = ["inspect-specs"]
+
+[[phases]]
+id = "1c"
+slot = "author-specs"
+layer = "core"
+mode = "once"
+description = "Author specification documents from context map"
+context_from = ["1b"]
+gate = ["inspect-specs"]
+
+[[phases]]
+id = "2"
+slot = "design-entities"
+layer = "core"
+mode = "once"
+description = "Design domain entities and value objects"
+context_from = ["1c"]
+gate = ["review-code"]
+
+[[phases]]
+id = "2b"
+slot = "design-api"
+layer = "backend"
+mode = "fan-out"
+description = "Design API routes, controllers, and backend contracts"
+context_from = ["2"]
+gate = ["review-code"]
+
+[[phases]]
+id = "3"
+slot = "build-infrastructure"
+layer = "backend"
+mode = "fan-out"
+description = "Build database schema, edge functions, and persistence layer"
+context_from = ["2b"]
+gate = ["review-code"]
+
+[[phases]]
+id = "4"
+slot = "implement-application"
+layer = "core"
+mode = "once"
+description = "Implement shared application use-cases"
+context_from = ["2"]
+gate = ["review-code"]
+
+[[phases]]
+id = "5"
+slot = "build-presentation"
+layer = "frontend"
+mode = "fan-out"
+description = "Build presentation layer — widgets, navigation, theming, state"
+context_from = ["4"]
+gate = ["validate-design", "review-code"]
+
+[[phases]]
+id = "6"
+slot = "build-release"
+layer = "frontend"
+mode = "fan-out"
+description = "Build release artifacts"
+context_from = ["5"]
+gate = ["audit-structure"]
+
+[[phases]]
+id = "6b"
+slot = "serve-release"
+layer = "backend"
+mode = "fan-out"
+description = "Generate serving config for backend release"
+context_from = ["3"]
+
+[[phases]]
+id = "7"
+slot = "validate-environment"
+layer = "all"
+mode = "fan-out"
+description = "Validate toolchain, run test suite, lint, verify"
+context_from = ["6", "6b"]

@@ -1,0 +1,15 @@
+# Compliance profile — minimal for a declarative dev agency.
+# Premium-first-party agencies target L0 machine-issued certification.
+# No GDPR/HIPAA/PCI scope for a development tool agency.
+
+[certification]
+target = "L0"
+
+[security]
+sandbox = true
+network = false
+
+[data]
+handles_pii = false
+handles_payment = false
+data_residency = []

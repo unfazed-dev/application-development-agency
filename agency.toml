@@ -1,0 +1,40 @@
+# Agency manifest — identity, population, spec pin, crew pins.
+# First-party premium, declarative. First real ARXAP Agency.
+
+name = "application-development-agency"
+version = "1.0.0"
+domain = "application-development"
+arxap_version = "1.0"
+population = "premium-first-party"
+compliance_profile = "profiles/default.toml"
+playbook = "playbook.toml"
+
+[[crews]]
+name = "core-crew"
+version = "1.0.0"
+path = "crews/core-crew"
+description = "Stack-agnostic core — discovery, specs, domain, application use-cases"
+
+[[crews]]
+name = "flutter-crew"
+version = "1.0.0"
+path = "crews/flutter-crew"
+description = "Flutter stack — presentation, state, navigation, testing"
+
+[[crews]]
+name = "dioxus-crew"
+version = "1.0.0"
+path = "crews/dioxus-crew"
+description = "Dioxus stack — presentation, state, navigation, testing"
+
+[[crews]]
+name = "supabase-crew"
+version = "1.0.0"
+path = "crews/supabase-crew"
+description = "Supabase backend — schema, edge functions, API"
+
+[[crews]]
+name = "node-crew"
+version = "1.0.0"
+path = "crews/node-crew"
+description = "Node.js backend — API design, web server, build"

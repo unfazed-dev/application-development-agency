@@ -1,0 +1,80 @@
+name = "core-crew"
+version = "1.0.0"
+description = "Stack-agnostic core — requirements, context mapping, specs, domain entities, application use-cases"
+layer = "core"
+
+[author]
+name = "pixel 77"
+
+[[agents]]
+role = "requirement-analyst"
+contract = "agents/discovery/requirement-analyst.toml"
+
+[[agents]]
+role = "context-mapper"
+contract = "agents/discovery/context-mapper.toml"
+
+[[agents]]
+role = "spec-author"
+contract = "agents/specification/spec-author.toml"
+
+[[agents]]
+role = "entity-designer"
+contract = "agents/domain/entity-designer.toml"
+
+[[agents]]
+role = "usecase-engineer"
+contract = "agents/application/usecase-engineer.toml"
+
+[[agents]]
+role = "spec-inspector"
+contract = "agents/quality/spec-inspector.toml"
+
+[[agents]]
+role = "code-reviewer"
+contract = "agents/quality/code-reviewer.toml"
+
+[slots]
+discover-requirements = ["requirement-analyst"]
+map-contexts = ["context-mapper"]
+author-specs = ["spec-author"]
+design-entities = ["entity-designer"]
+implement-application = ["usecase-engineer"]
+inspect-specs = ["spec-inspector"]
+review-code = ["code-reviewer"]
+
+[[routines]]
+name = "default"
+order = [
+  "requirement-analyst",
+  "context-mapper",
+  "spec-author",
+  "entity-designer",
+  "usecase-engineer",
+  "spec-inspector",
+  "code-reviewer",
+]
+
+[[tools]]
+name = "file"
+[tools.annotations]
+read_only_hint = true
+destructive_hint = false
+idempotent_hint = true
+open_world_hint = false
+
+[[tools]]
+name = "web"
+[tools.annotations]
+read_only_hint = true
+destructive_hint = false
+idempotent_hint = true
+open_world_hint = true
+
+[[tools]]
+name = "terminal"
+[tools.annotations]
+read_only_hint = false
+destructive_hint = false
+idempotent_hint = true
+open_world_hint = false

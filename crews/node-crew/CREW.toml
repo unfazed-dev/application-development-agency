@@ -1,0 +1,54 @@
+name = "node-crew"
+version = "1.0.0"
+description = "Node.js backend specialist — Express API, web server config, build pipeline"
+layer = "backend"
+
+[author]
+name = "pixel 77"
+
+[[agents]]
+role = "api-designer"
+contract = "agents/application/api-designer.toml"
+
+[[agents]]
+role = "web-server"
+contract = "agents/delivery/web-server.toml"
+
+[[agents]]
+role = "build-agent"
+contract = "agents/delivery/build-agent.toml"
+
+[[agents]]
+role = "test-runner"
+contract = "agents/quality/test-runner.toml"
+
+[slots]
+design-api = ["api-designer"]
+build-infrastructure = ["api-designer"]
+serve-release = ["web-server"]
+validate-environment = ["test-runner"]
+
+[[routines]]
+name = "default"
+order = [
+  "api-designer",
+  "web-server",
+  "build-agent",
+  "test-runner",
+]
+
+[[tools]]
+name = "file"
+[tools.annotations]
+read_only_hint = true
+destructive_hint = false
+idempotent_hint = true
+open_world_hint = false
+
+[[tools]]
+name = "terminal"
+[tools.annotations]
+read_only_hint = false
+destructive_hint = false
+idempotent_hint = true
+open_world_hint = false

@@ -1,0 +1,57 @@
+name = "flutter-crew"
+version = "1.0.0"
+description = "Flutter stack specialist — presentation, state management, navigation, testing"
+layer = "frontend"
+
+[author]
+name = "pixel 77"
+
+[[agents]]
+role = "design-builder"
+contract = "agents/presentation/design-builder.toml"
+
+[[agents]]
+role = "widget-composer"
+contract = "agents/presentation/widget-composer.toml"
+
+[[agents]]
+role = "state-manager"
+contract = "agents/application/state-manager.toml"
+
+[[agents]]
+role = "navigation-designer"
+contract = "agents/application/navigation-designer.toml"
+
+[[agents]]
+role = "test-runner"
+contract = "agents/quality/test-runner.toml"
+
+[slots]
+build-presentation = ["design-builder", "widget-composer", "state-manager", "navigation-designer"]
+build-release = ["test-runner"]
+validate-environment = ["test-runner"]
+
+[[routines]]
+name = "default"
+order = [
+  "design-builder",
+  "widget-composer",
+  "state-manager",
+  "navigation-designer",
+]
+
+[[tools]]
+name = "file"
+[tools.annotations]
+read_only_hint = true
+destructive_hint = false
+idempotent_hint = true
+open_world_hint = false
+
+[[tools]]
+name = "terminal"
+[tools.annotations]
+read_only_hint = false
+destructive_hint = false
+idempotent_hint = true
+open_world_hint = false
